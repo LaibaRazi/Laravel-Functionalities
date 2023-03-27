@@ -8,16 +8,17 @@
 </head>
 <body>
 
-<form action="{{ url('/pet') }}" method="post">
-        @csrf
-        <h3>{{ $title }}</h3>
+<form action="{{ url('/pet/update/'.$pet->Id_Pet) }}" method="post">
+        {{ csrf_field() }}
+        @method('put')
+        <h3>Edit</h3>
         <label for="">Pet Name :</label>
         <br>
-        <input type="text" name="PetName" id="" placeholder="{{ $pet->PetName }}">
+        <input type="text" name="PetName" id="" value=" {{ $pet->PetName }}" >
         <br>
         <label>Quantity of pets</label>
         <br>
-        <input type="text" name="Quantity" id="" placeholder="{{ $pet->Quantity }}">
+        <input type="text" name="Quantity" id="" value=" {{ $pet->Quantity }} ">
         <br>
         <input type="submit" value="submit">
 
